@@ -68,12 +68,11 @@ BUILD_APKTOOL()
     local PDR
     PDR="$(pwd)"
 
-    echo -e "- Building apktool...\n"
+    echo -e "- Downloading apktool...\n"
 
-    cd "$SRC_DIR/external/apktool"
-    ./gradlew build shadowJar -q
-    cp --preserve=all "scripts/linux/apktool" "$TOOLS_DIR"
-    cp --preserve=all "brut.apktool/apktool-cli/build/libs/apktool-cli-all.jar" "$TOOLS_DIR/apktool.jar"
+    wget -O "$TOOLS_DIR/apktool" "https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/linux/apktool"
+    chmod +x "$TOOLS_DIR/apktool"
+    wget -O "$TOOLS_DIR/apktool.jar" "https://github.com/iBotPeaches/Apktool/releases/download/v2.10.0/apktool_2.10.0.jar"
 
     echo ""
     cd "$PDR"

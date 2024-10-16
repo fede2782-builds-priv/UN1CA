@@ -2,10 +2,6 @@
 	path = external/android-tools
 	url = https://github.com/nmeum/android-tools.git
 	ignore = dirty
-[submodule "external/apktool"]
-	path = external/apktool
-	url = https://github.com/iBotPeaches/Apktool.git
-	ignore = dirty
 [submodule "external/erofs-utils"]
 	path = external/erofs-utils
 	url = https://github.com/sekaiacg/erofs-utils.git
