@@ -101,6 +101,7 @@ GENERATE_OP_LIST()
     local HAS_SYSTEM_DLKM=false
 
     [[ "$TARGET_SINGLE_SYSTEM_IMAGE" == "qssi" ]] && GROUP_NAME="qti_dynamic_partitions"
+    [[ "$TARGET_CODENAME" == "a34x" ]] && GROUP_NAME="main"
 
     [ -f "$TMP_DIR/system.img" ] && HAS_SYSTEM=true
     [ -f "$TMP_DIR/vendor.img" ] && HAS_VENDOR=true
