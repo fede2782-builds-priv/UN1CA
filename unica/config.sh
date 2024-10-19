@@ -24,8 +24,8 @@ ROM_CODENAME="Diamond"
 case "$TARGET_SINGLE_SYSTEM_IMAGE" in
     # Qualcomm
     "qssi")
-        # Galaxy S23 (One UI 6.0)
-        SOURCE_FIRMWARE="SM-S911B/INS/352404911234563"
+        # Galaxy S23 (One UI 6.1)
+        SOURCE_FIRMWARE="SM-S911B/EUX/352404911234563"
         SOURCE_EXTRA_FIRMWARES=()
         SOURCE_API_LEVEL=34
         SOURCE_VNDK_VERSION=33
@@ -40,8 +40,8 @@ case "$TARGET_SINGLE_SYSTEM_IMAGE" in
         ;;
     # Exynos
     "essi")
-        # Galaxy S23 FE (One UI 6.0)
-        SOURCE_FIRMWARE="SM-S711B/SEK/358615311234564"
+        # Galaxy S23 FE (One UI 6.1)
+        SOURCE_FIRMWARE="SM-S711B/EUX/358615311234564"
         SOURCE_EXTRA_FIRMWARES=()
         SOURCE_API_LEVEL=34
         SOURCE_VNDK_VERSION=31

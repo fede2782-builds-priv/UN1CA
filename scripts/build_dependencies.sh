@@ -162,6 +162,10 @@ fi
 
 mkdir -p "$TOOLS_DIR"
 
+if [[ -e $SRC_DIR/tools.tar.gz ]]; then
+        tar xzf $SRC_DIR/tools.tar.gz -C $OUT_DIR/tools
+fi
+
 ANDROID_TOOLS=true
 APKTOOL=true
 EROFS_UTILS=true
