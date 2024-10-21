@@ -378,7 +378,7 @@ echo "Set up tmp dir"
 mkdir -p "$TMP_DIR"
 [ -d "$TMP_DIR/META-INF/com/google/android" ] && rm -rf "$TMP_DIR/META-INF/com/google/android"
 mkdir -p "$TMP_DIR/META-INF/com/google/android"
-cp --preserve=all "$SRC_DIR/unica/flashable-zip/updater" "$TMP_DIR/META-INF/com/google/android/update-binary"
+cp --preserve=all "$SRC_DIR/real/flashable-zip/updater" "$TMP_DIR/META-INF/com/google/android/update-binary"
 
 while read -r i; do
     PARTITION=$(basename "$i")
@@ -451,7 +451,7 @@ cd "$TMP_DIR" ; zip -rq ../rom.zip ./* ; cd - &> /dev/null
 echo "Signing zip"
 [ -f "$OUT_DIR/$FILE_NAME-sign.zip" ] && rm -f "$OUT_DIR/$FILE_NAME-sign.zip"
 signapk -w \
-    "$SRC_DIR/unica/security/aosp_testkey.x509.pem" "$SRC_DIR/unica/security/aosp_testkey.pk8" \
+    "$SRC_DIR/real/security/aosp_testkey.x509.pem" "$SRC_DIR/real/security/aosp_testkey.pk8" \
     "$OUT_DIR/rom.zip" "$OUT_DIR/$FILE_NAME-sign.zip" \
     && rm -f "$OUT_DIR/rom.zip"
 

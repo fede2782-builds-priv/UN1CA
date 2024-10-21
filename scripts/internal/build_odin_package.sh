@@ -105,7 +105,7 @@ GENERATE_LPMAKE_OPT()
     echo "$OPT"
 }
 
-FILE_NAME="UN1CA_${ROM_VERSION}_$(date +%Y%m%d)_${TARGET_CODENAME}"
+FILE_NAME="RealROM_${ROM_VERSION}_$(date +%Y%m%d)_${TARGET_CODENAME}"
 # ]
 
 MODEL=$(echo -n "$TARGET_FIRMWARE" | cut -d "/" -f 1)

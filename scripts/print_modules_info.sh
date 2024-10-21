@@ -59,7 +59,7 @@ PRINT_MODULE_INFO()
         MODPATH="$MODPATH/$TARGET_SINGLE_SYSTEM_IMAGE"
     fi
 
-    if [[ "$MODPATH" == *"unica/packages/knox"* ]]; then
+    if [[ "$MODPATH" == *"real/packages/knox"* ]]; then
         local SUBDIR
         SUBDIR=$(GEN_KNOX_SUBDIR)
         [ -z "$SUBDIR" ] && return 0
@@ -95,12 +95,12 @@ MODULES_COUNT=0
 while read -r i; do
     ((MODULES_COUNT+=1))
     PRINT_MODULE_INFO "$i"
-done <<< "$(find "$SRC_DIR/unica/packages" -mindepth 1 -maxdepth 1 -type d)"
+done <<< "$(find "$SRC_DIR/real/packages" -mindepth 1 -maxdepth 1 -type d)"
 
 while read -r i; do
     ((MODULES_COUNT+=1))
     PRINT_MODULE_INFO "$i"
-done <<< "$(find "$SRC_DIR/unica/patches" -mindepth 1 -maxdepth 1 -type d)"
+done <<< "$(find "$SRC_DIR/real/patches" -mindepth 1 -maxdepth 1 -type d)"
 
 while read -r i; do
     ((MODULES_COUNT+=1))

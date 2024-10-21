@@ -149,7 +149,7 @@ APPLY_SMALI_PATCHES()
             if $ROM_IS_OFFICIAL; then
                 [[ "$patch" == *"AOSP"* ]] && continue
             else
-                [[ "$patch" == *"UNICA"* ]] && continue
+                [[ "$patch" == *"REAL"* ]] && continue
             fi
         fi
 
@@ -176,7 +176,7 @@ APPLY_MODULE()
         MODPATH="$MODPATH/$TARGET_SINGLE_SYSTEM_IMAGE"
     fi
 
-    if [[ "$MODPATH" == *"unica/packages/knox"* ]]; then
+    if [[ "$MODPATH" == *"real/packages/knox"* ]]; then
         local SUBDIR
         SUBDIR=$(GEN_KNOX_SUBDIR)
         [ -z "$SUBDIR" ] && return 0

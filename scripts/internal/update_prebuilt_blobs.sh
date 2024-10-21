@@ -32,68 +32,68 @@ if [ "$#" != 1 ]; then
 fi
 
 case "$1" in
-    "unica/packages/china")
+    "real/packages/china")
         MODULE="$1"
         FW="SM-S9110/CHC/RFCW2198XNF"
-        BLOBS="$(find "$SRC_DIR/unica/packages/china/system" -type f | sed "s.$SRC_DIR/unica/packages/china.system.")"
+        BLOBS="$(find "$SRC_DIR/real/packages/china/system" -type f | sed "s.$SRC_DIR/real/packages/china.system.")"
         ;;
-    "unica/packages/fod/essi")
+    "real/packages/fod/essi")
         MODULE="$1"
         FW="SM-S901B/BTE/350330051234562"
-        BLOBS="$(find "$SRC_DIR/unica/packages/fod/essi/system" -type f | sed "s.$SRC_DIR/unica/packages/fod/essi.system.")"
+        BLOBS="$(find "$SRC_DIR/real/packages/fod/essi/system" -type f | sed "s.$SRC_DIR/real/packages/fod/essi.system.")"
         ;;
-    "unica/packages/fod/qssi")
+    "real/packages/fod/qssi")
         MODULE="$1"
         FW="SM-X716B/EUX/353439961234567"
-        BLOBS="$(find "$SRC_DIR/unica/packages/fod/qssi/system" -type f \
-            -not -path "*/priv-app/*" | sed "s.$SRC_DIR/unica/packages/fod/qssi.system.")"
+        BLOBS="$(find "$SRC_DIR/real/packages/fod/qssi/system" -type f \
+            -not -path "*/priv-app/*" | sed "s.$SRC_DIR/real/packages/fod/qssi.system.")"
         ;;
-    "unica/packages/knox/essi/none")
+    "real/packages/knox/essi/none")
         MODULE="$1"
         FW="SM-A546B/BTE/350756481234568"
-        BLOBS="$(find "$SRC_DIR/unica/packages/knox/essi/none/system" -type f | sed "s.$SRC_DIR/unica/packages/knox/essi/none.system.")"
+        BLOBS="$(find "$SRC_DIR/real/packages/knox/essi/none/system" -type f | sed "s.$SRC_DIR/real/packages/knox/essi/none.system.")"
         ;;
-    "unica/packages/knox/essi/sdp")
+    "real/packages/knox/essi/sdp")
         MODULE="$1"
         FW="SM-A536B/BTE/355490891234563"
-        BLOBS="$(find "$SRC_DIR/unica/packages/knox/essi/sdp/system" -type f | sed "s.$SRC_DIR/unica/packages/knox/essi/sdp.system.")"
+        BLOBS="$(find "$SRC_DIR/real/packages/knox/essi/sdp/system" -type f | sed "s.$SRC_DIR/real/packages/knox/essi/sdp.system.")"
         ;;
-    "unica/packages/knox/qssi/ddar_sdp")
+    "real/packages/knox/qssi/ddar_sdp")
         MODULE="$1"
         FW="SM-G990B/EUX/353718681234563"
-        BLOBS="$(find "$SRC_DIR/unica/packages/knox/qssi/ddar_sdp/system" -type f | sed "s.$SRC_DIR/unica/packages/knox/qssi/ddar_sdp.system.")"
+        BLOBS="$(find "$SRC_DIR/real/packages/knox/qssi/ddar_sdp/system" -type f | sed "s.$SRC_DIR/real/packages/knox/qssi/ddar_sdp.system.")"
         ;;
-    "unica/packages/knox/qssi/none")
+    "real/packages/knox/qssi/none")
         MODULE="$1"
         FW="SM-A736B/INS/352828291234563"
-        BLOBS="$(find "$SRC_DIR/unica/packages/knox/qssi/none/system" -type f | sed "s.$SRC_DIR/unica/packages/knox/qssi/none.system.")"
+        BLOBS="$(find "$SRC_DIR/real/packages/knox/qssi/none/system" -type f | sed "s.$SRC_DIR/real/packages/knox/qssi/none.system.")"
         ;;
-    "unica/packages/knox/qssi/sdp")
+    "real/packages/knox/qssi/sdp")
         MODULE="$1"
         FW="SM-A528B/BTU/352599501234566"
-        BLOBS="$(find "$SRC_DIR/unica/packages/knox/qssi/sdp/system" -type f | sed "s.$SRC_DIR/unica/packages/knox/qssi/sdp.system.")"
+        BLOBS="$(find "$SRC_DIR/real/packages/knox/qssi/sdp/system" -type f | sed "s.$SRC_DIR/real/packages/knox/qssi/sdp.system.")"
         ;;
-    "unica/packages/mass_cam")
+    "real/packages/mass_cam")
         MODULE="$1"
         FW="SM-A736B/INS/352828291234563"
-        BLOBS="$(find "$SRC_DIR/unica/packages/mass_cam/system" -type f | sed "s.$SRC_DIR/unica/packages/mass_cam.system.")"
+        BLOBS="$(find "$SRC_DIR/real/packages/mass_cam/system" -type f | sed "s.$SRC_DIR/real/packages/mass_cam.system.")"
         ;;
-    "unica/packages/vndk/30")
+    "real/packages/vndk/30")
         MODULE="$1"
         FW="SM-A736B/INS/352828291234563"
         BLOBS="system/system/system_ext/apex/com.android.vndk.v30.apex"
         ;;
-    "unica/packages/vndk/31")
+    "real/packages/vndk/31")
         MODULE="$1"
         FW="SM-S901B/BTE/350330051234562"
         BLOBS="system/system/system_ext/apex/com.android.vndk.v31.apex"
         ;;
-    "unica/packages/vndk/32")
+    "real/packages/vndk/32")
         MODULE="$1"
         FW="SM-F936B/INS/352334701234566"
         BLOBS="system_ext/apex/com.android.vndk.v32.apex"
         ;;
-    "unica/packages/vndk/33")
+    "real/packages/vndk/33")
         MODULE="$1"
         FW="SM-S911B/INS/352404911234563"
         BLOBS="system_ext/apex/com.android.vndk.v33.apex"
@@ -155,9 +155,9 @@ bash "$SRC_DIR/scripts/extract_fw.sh"
 for i in $BLOBS; do
     if [[ "$i" == *"system_ext/apex/com.android.vndk.v"* ]]; then
         if [[ "$i" == *"com.android.vndk.v30.apex" ]]; then
-            rm -rf "$SRC_DIR/unica/packages/vndk/30/com.android.vndk.v30.apex."*
+            rm -rf "$SRC_DIR/real/packages/vndk/30/com.android.vndk.v30.apex."*
             split -db 52428800 "$FW_DIR/${MODEL}_${REGION}/$i" \
-                "$SRC_DIR/unica/packages/vndk/30/com.android.vndk.v30.apex."
+                "$SRC_DIR/real/packages/vndk/30/com.android.vndk.v30.apex."
         else
             cp -a --preserve=all "$FW_DIR/${MODEL}_${REGION}/$i" \
                 "$SRC_DIR/$MODULE/$(basename "$i")"
