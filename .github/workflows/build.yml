@@ -11,12 +11,12 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     strategy:
       fail-fast: false
       matrix:
-        target: [a52q, a52sxq, a54x, a71, a72q, a73xq, m52xq, r9q, r9q2]
+        target: [a34x]
 
     steps:
       - name: Checkout repo
@@ -35,7 +35,7 @@ jobs:
           DEBIAN_FRONTEND=noninteractive sudo apt install -yq \
             attr ccache clang golang libbrotli-dev \
             libgtest-dev libprotobuf-dev libunwind-dev libusb-1.0-0-dev libzstd-dev \
-            linux-modules-extra-$(uname -r) lld ninja-build protobuf-compiler zipalign
+            linux-modules-extra-$(uname -r) lld ninja-build protobuf-compiler zipalign libfmt-dev
           sudo modprobe erofs f2fs
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
