@@ -152,6 +152,25 @@ BUILD_SIGNAPK()
     echo ""
     cd "$PDR"
 }
+
+BUILD_MAGISKBOOT()
+{
+    local PDR
+    PDR="$(pwd)"
+
+    echo -e "- Downloading magiskboot...\n"
+
+    mkdir -p "$TMP_DIR"
+    cd $TMP_DIR
+    wget -O magisk.zip https://github.com/topjohnwu/Magisk/releases/download/v28.0/Magisk-v28.0.apk
+    unzip magisk.zip >> /dev/null
+    cp --preserve=all lib/x86_64/libmagiskboot.so "$TOOLS_DIR/magiskboot"
+    chmod +x "$TOOLS_DIR/magiskboot"
+
+    echo ""
+    cd "$PDR"
+    rm -rf $TMP_DIR
+}
 # ]
 
 if [ "$#" -gt 0 ]; then
@@ -164,6 +183,7 @@ mkdir -p "$TOOLS_DIR"
 
 if [[ -e $SRC_DIR/tools.tar.gz ]]; then
         tar xzf $SRC_DIR/tools.tar.gz -C $OUT_DIR/tools
+	rm $SRC_DIR/tools.tar.gz
 fi
 
 ANDROID_TOOLS=true
@@ -172,6 +192,7 @@ EROFS_UTILS=true
 IMG2SDAT=true
 SAMFIRM=true
 SIGNAPK=true
+MAGISKBOOT=true
 
 ANDROID_TOOLS_EXEC=(
     "adb" "append2simg" "avbtool" "e2fsdroid"
@@ -203,11 +224,17 @@ SIGNAPK_EXEC=(
 )
 CHECK_TOOLS "${SIGNAPK_EXEC[@]}" && SIGNAPK=false
 
+MAGISKBOOT_EXEC=(
+    "magiskboot"
+)
+CHECK_TOOLS "${MAGISKBOOT_EXEC[@]}" && MAGISKBOOT=false
+
 $ANDROID_TOOLS && BUILD_ANDROID_TOOLS
 $APKTOOL && BUILD_APKTOOL
 $EROFS_UTILS && BUILD_EROFS_UTILS
 $IMG2SDAT && BUILD_IMG2SDAT
 $SAMFIRM && BUILD_SAMFIRM
 $SIGNAPK && BUILD_SIGNAPK
+$MAGISKBOOT && BUILD_MAGISKBOOT
 
 exit 0
