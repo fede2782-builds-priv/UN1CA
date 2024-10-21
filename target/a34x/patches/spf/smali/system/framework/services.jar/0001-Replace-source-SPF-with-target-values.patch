@@ -1,0 +1,25 @@
+From 5c263b9323c2c8f3b1d3dcebdc308ead9ef022bc Mon Sep 17 00:00:00 2001
+From: Fede2782 <78815152+Fede2782@users.noreply.github.com>
+Date: Sun, 20 Oct 2024 18:11:20 +0200
+Subject: [PATCH] Replace source SPF with target values
+
+---
+ .../biometrics/sensors/fingerprint/FingerprintUtils.smali       | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/smali/com/android/server/biometrics/sensors/fingerprint/FingerprintUtils.smali b/smali/com/android/server/biometrics/sensors/fingerprint/FingerprintUtils.smali
+index d1a037e5..4fa051f2 100644
+--- a/smali/com/android/server/biometrics/sensors/fingerprint/FingerprintUtils.smali
++++ b/smali/com/android/server/biometrics/sensors/fingerprint/FingerprintUtils.smali
+@@ -442,7 +442,7 @@
+ .method public static semGetMaxTemplateNumberFromSPF()I
+     .locals 6
+ 
+-    const-string v0, "google_touch_display_optical,settings=3,aod_transition_animation"
++    const-string v0, "google_touch_display_optical,settings=3"
+ 
+     const-string v1, ","
+ 
+-- 
+2.45.2
+

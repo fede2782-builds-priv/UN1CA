@@ -1,0 +1,108 @@
+From bfc292aff65f32371dcbb2179e2123d47d0f9bd0 Mon Sep 17 00:00:00 2001
+From: Fede2782 <78815152+Fede2782@users.noreply.github.com>
+Date: Sun, 20 Oct 2024 17:58:58 +0200
+Subject: [PATCH] Replace source SPF with target values
+
+---
+ .../android/hardware/fingerprint/FingerprintManager.smali     | 4 ++--
+ .../fingerprint/SemFingerprintManager$Characteristics.smali   | 4 ++--
+ .../android/bio/fingerprint/SemFingerprintManager.smali       | 2 +-
+ .../com/samsung/android/camera/mic/SemMultiMicManager.smali   | 4 ++--
+ smali_classes5/com/samsung/android/rune/CoreRune.smali        | 2 +-
+ 5 files changed, 8 insertions(+), 8 deletions(-)
+
+diff --git a/smali_classes2/android/hardware/fingerprint/FingerprintManager.smali b/smali_classes2/android/hardware/fingerprint/FingerprintManager.smali
+index f01aa472..54f341ef 100644
+--- a/smali_classes2/android/hardware/fingerprint/FingerprintManager.smali
++++ b/smali_classes2/android/hardware/fingerprint/FingerprintManager.smali
+@@ -1181,7 +1181,7 @@
+ 
+     const-string v0, "touch_display"
+ 
+-    const-string v1, "google_touch_display_optical,settings=3,aod_transition_animation"
++    const-string v1, "google_touch_display_optical,settings=3"
+ 
+     invoke-virtual {v1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+ 
+@@ -1230,7 +1230,7 @@
+ 
+     const-string v0, "transition_effect_on"
+ 
+-    const-string v1, "google_touch_display_optical,settings=3,aod_transition_animation"
++    const-string v1, "google_touch_display_optical,settings=3"
+ 
+     invoke-virtual {v1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+ 
+diff --git a/smali_classes5/com/samsung/android/bio/fingerprint/SemFingerprintManager$Characteristics.smali b/smali_classes5/com/samsung/android/bio/fingerprint/SemFingerprintManager$Characteristics.smali
+index 7b89f42c..59d0d9ab 100644
+--- a/smali_classes5/com/samsung/android/bio/fingerprint/SemFingerprintManager$Characteristics.smali
++++ b/smali_classes5/com/samsung/android/bio/fingerprint/SemFingerprintManager$Characteristics.smali
+@@ -29,7 +29,7 @@
+ 
+ .field public static final whitelist SENSOR_TYPE_ULTRASONIC:I = 0x3
+ 
+-.field private static final blacklist mConfig:Ljava/lang/String; = "google_touch_display_optical,settings=3,aod_transition_animation"
++.field private static final blacklist mConfig:Ljava/lang/String; = "google_touch_display_optical,settings=3"
+ 
+ 
+ # instance fields
+@@ -96,7 +96,7 @@
+ 
+     const-string/jumbo v0, "ultrasonic"
+ 
+-    const-string/jumbo v1, "google_touch_display_optical,settings=3,aod_transition_animation"
++    const-string/jumbo v1, "google_touch_display_optical,settings=3"
+ 
+     invoke-virtual {v1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+ 
+diff --git a/smali_classes5/com/samsung/android/bio/fingerprint/SemFingerprintManager.smali b/smali_classes5/com/samsung/android/bio/fingerprint/SemFingerprintManager.smali
+index d75a013a..7344cd5d 100644
+--- a/smali_classes5/com/samsung/android/bio/fingerprint/SemFingerprintManager.smali
++++ b/smali_classes5/com/samsung/android/bio/fingerprint/SemFingerprintManager.smali
+@@ -407,7 +407,7 @@
+ 
+     if-eq v0, v1, :cond_0
+ 
+-    const-string/jumbo v0, "google_touch_display_optical,settings=3,aod_transition_animation"
++    const-string/jumbo v0, "google_touch_display_optical,settings=3"
+ 
+     return-object v0
+ 
+diff --git a/smali_classes5/com/samsung/android/camera/mic/SemMultiMicManager.smali b/smali_classes5/com/samsung/android/camera/mic/SemMultiMicManager.smali
+index 975703fb..1b91459a 100644
+--- a/smali_classes5/com/samsung/android/camera/mic/SemMultiMicManager.smali
++++ b/smali_classes5/com/samsung/android/camera/mic/SemMultiMicManager.smali
+@@ -199,7 +199,7 @@
+     const/4 v0, 0x0
+ 
+     :try_start_0
+-    const-string v1, "07020"
++    const-string v1, "07010"
+ 
+     invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+ 
+@@ -287,7 +287,7 @@
+     const/4 v0, 0x0
+ 
+     :try_start_0
+-    const-string v2, "07020"
++    const-string v2, "07010"
+ 
+     invoke-static {v2}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+ 
+diff --git a/smali_classes5/com/samsung/android/rune/CoreRune.smali b/smali_classes5/com/samsung/android/rune/CoreRune.smali
+index 85e12484..23f83578 100644
+--- a/smali_classes5/com/samsung/android/rune/CoreRune.smali
++++ b/smali_classes5/com/samsung/android/rune/CoreRune.smali
+@@ -2817,7 +2817,7 @@
+ 
+     nop
+ 
+-    const-string/jumbo v1, "google_touch_display_optical,settings=3,aod_transition_animation"
++    const-string/jumbo v1, "google_touch_display_optical,settings=3"
+ 
+     const-string/jumbo v2, "touch_side"
+ 
+-- 
+2.45.2
+
