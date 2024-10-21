@@ -15,16 +15,16 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-# UN1CA configuration file
-ROM_VERSION="1.1.6"
+# RealROM configuration file
+ROM_VERSION="1.0.0"
 ROM_VERSION+="-$(git rev-parse --short HEAD)"
-ROM_CODENAME="Diamond"
+ROM_CODENAME="RevengeOfMtk"
 
 # Source ROM firmware
 case "$TARGET_SINGLE_SYSTEM_IMAGE" in
     # Qualcomm
     "qssi")
-        # Galaxy S23 (One UI 6.1)
+        # Galaxy S23 (One UI 6.1.1)
         SOURCE_FIRMWARE="SM-S911B/EUX/352404911234563"
         SOURCE_EXTRA_FIRMWARES=()
         SOURCE_API_LEVEL=34
@@ -40,7 +40,7 @@ case "$TARGET_SINGLE_SYSTEM_IMAGE" in
         ;;
     # Exynos
     "essi")
-        # Galaxy S23 FE (One UI 6.1)
+        # Galaxy S23 FE (One UI 6.1.1)
         SOURCE_FIRMWARE="SM-S711B/EUX/358615311234564"
         SOURCE_EXTRA_FIRMWARES=()
         SOURCE_API_LEVEL=34
